@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br via-blue-50 to-indigo-100 from-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900;
+    @apply text-slate-900 dark:text-slate-100;
+    @apply font-sans;
+    @apply transition-colors duration-300;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better touch targets for mobile */
+  button, a, input, select, textarea {
+    @apply touch-manipulation;
+  }
+
+  /* Prevent text selection on interactive elements */
+  button, a {
+    @apply select-none;
+  }
+
+  /* Smooth scrolling for iOS */
+  @supports (-webkit-overflow-scrolling: touch) {
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply border backdrop-blur-xl bg-white/80 dark:bg-slate-800/80 border-white/20 dark:border-slate-700/50;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700;
+    @apply px-6 py-3 font-semibold text-white rounded-xl;
+    @apply transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply focus:outline-none focus:ring-4 focus:ring-primary-300/50;
+    @apply active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-600 hover:to-slate-700;
+    @apply px-6 py-3 font-semibold text-white rounded-xl;
+    @apply transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply focus:outline-none focus:ring-4 focus:ring-slate-300/50;
+    @apply active:scale-95;
+  }
+  
+  .input-field {
+    @apply px-4 py-3 w-full rounded-xl border-2 border-slate-200 dark:border-slate-600;
+    @apply backdrop-blur-sm bg-white/80 dark:bg-slate-800/80;
+    @apply focus:outline-none focus:ring-4 focus:ring-primary-300/50 focus:border-primary-500;
+    @apply transition-all duration-300;
+    @apply placeholder-slate-400 dark:placeholder-slate-500;
+    @apply touch-manipulation;
+  }
+
+  /* Mobile-first responsive utilities */
+  .container-mobile {
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .text-mobile {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+
+  .spacing-mobile {
+    @apply space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8;
+  }
+
+  .padding-mobile {
+    @apply p-3 sm:p-4 md:p-6 lg:p-8;
+  }
+
+  .margin-mobile {
+    @apply m-2 sm:m-3 md:m-4 lg:m-6;
+  }
+}
+
+@layer utilities {
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Custom breakpoint for extra small screens */
+  .xs\:hidden {
+    @media (min-width: 475px) {
+      display: none;
+    }
+  }
+
+  .xs\:inline {
+    @media (min-width: 475px) {
+      display: inline;
+    }
+  }
+
+  /* Touch-friendly hover states */
+  @media (hover: hover) {
+    .hover\:scale-105:hover {
+      transform: scale(1.05);
+    }
+    
+    .hover\:scale-110:hover {
+      transform: scale(1.1);
+    }
+    
+    .hover\:y-2:hover {
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  /* Mobile-specific styles */
+  @media (max-width: 640px) {
+    .mobile\:text-center {
+      text-align: center;
+    }
+    
+    .mobile\:px-2 {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    
+    .mobile\:py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+}

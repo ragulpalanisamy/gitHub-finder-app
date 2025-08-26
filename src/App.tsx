@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import "./App.css";
 import GithubUserFinder from "./components";
 import Slack from "./components/Integration/Slack";
+import './index.css'
 
 function App() {
   return (
